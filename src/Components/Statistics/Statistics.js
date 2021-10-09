@@ -11,13 +11,19 @@ export default function Statistics({
 }) {
   return (
     <div className={s.container}>
-      <p className={s.item}>{`Good: ${good}`}</p>
-      <p className={s.item}>{`Neutral: ${neutral}`}</p>
-      <p className={s.item}>{`Bad: ${bad}`}</p>
-      <p className={s.total_item}>{`Total: ${total}`}</p>
-      <p className={s.total_item}>
-        {`Positive feedback: ${!good ? 0 : positivePercentage} %`}{" "}
-      </p>
+      {total <= 0 ? (
+        <p className={s.total_item}>No feedback given</p>
+      ) : (
+        <>
+          <p className={s.item}>{`Good: ${good}`}</p>
+          <p className={s.item}>{`Neutral: ${neutral}`}</p>
+          <p className={s.item}>{`Bad: ${bad}`}</p>
+          <p className={s.total_item}>{`Total: ${total}`}</p>
+          <p className={s.total_item}>
+            {`Positive feedback: ${!good ? 0 : positivePercentage} %`}
+          </p>
+        </>
+      )}
     </div>
   );
 }
