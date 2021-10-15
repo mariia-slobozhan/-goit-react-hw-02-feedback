@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   countTotalFeedback = () => {
-    let total = this.state.good + this.state.neutral + this.state.bad;
+    const total = this.state.good + this.state.neutral + this.state.bad;
     return total;
   };
 
